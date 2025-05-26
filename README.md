@@ -1,55 +1,58 @@
-# 📋 Planner & Todo List Application
+# 📋 Planner & Todo List App
 
-A modern, feature-rich task management and goal tracking application built with Next.js 15, React 19, and TypeScript. Stay organized and achieve your goals with this beautiful, responsive planner app.
+A modern, feature-rich task management and goal tracking application built with Next.js 15, React 19, and TypeScript. Stay organized, track your progress, and achieve your goals with this beautiful, responsive web application.
 
-![Planner App](https://img.shields.io/badge/Next.js-15.2.4-black?style=for-the-badge&logo=next.js)
-![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Planner App](./public/og-image.png)
 
 ## ✨ Features
 
 ### 🎯 Task Management
 - **Create, Edit, Delete Tasks**: Full CRUD operations with inline editing
 - **Priority Levels**: High, Medium, Low priority with visual indicators
-- **Categories**: Organize tasks by Personal, Work, Health, Learning
+- **Categories**: Organize tasks by Work, Personal, Health, Learning, etc.
 - **Due Dates**: Set and track task deadlines
 - **Drag & Drop**: Reorder tasks with smooth animations
-- **Filtering & Sorting**: Filter by category, priority, completion status
-- **Persistent Storage**: All data saved to localStorage
+- **Completion Tracking**: Mark tasks as complete with visual feedback
 
 ### 🎪 Goal Tracking
-- **Create Goals**: Set meaningful objectives with target dates
-- **Progress Tracking**: Automatic progress calculation based on linked tasks
-- **Task Linking**: Connect tasks to goals for progress updates
-- **Visual Progress Bars**: See goal completion at a glance
+- **Goal Creation**: Set meaningful goals with target dates
+- **Progress Calculation**: Automatic progress tracking based on linked tasks
+- **Visual Progress Bars**: See your progress at a glance
 - **Goal Categories**: Organize goals by different life areas
 
 ### 🏆 Achievement System
 - **Automatic Unlocking**: Achievements unlock based on your activity
-- **Visual Badges**: Beautiful emoji badges with descriptions
-- **Toast Notifications**: Celebrate achievements with notifications
-- **Progress Tracking**: See which achievements you've unlocked
-
-#### Available Achievements:
-- 🎯 **First Task**: Create your first task
-- 🎪 **Goal Setter**: Create your first goal  
-- 🔥 **Streak Master**: Complete tasks for 7 days in a row
-- ⚡ **Productivity Pro**: Complete 50 tasks
+- **4 Built-in Achievements**:
+  - 🎯 **First Task**: Complete your first task
+  - 🎪 **Goal Setter**: Create your first goal
+  - 🔥 **Streak Master**: Complete tasks for 7 days in a row
+  - ⚡ **Productivity Pro**: Complete 50 tasks total
+- **Toast Notifications**: Get notified when you unlock achievements
 
 ### 📊 Dashboard Analytics
-- **Completion Rate**: Visual progress of all tasks
-- **Active Goals**: Track goals in progress
-- **Weekly Stats**: See tasks completed this week
-- **Priority Alerts**: Highlight high-priority and overdue tasks
-- **Achievement Counter**: Track unlocked achievements
+- **Completion Rate**: Visual progress of your overall task completion
+- **Active Goals**: Track how many goals you're working on
+- **Weekly Progress**: See tasks completed in the last 7 days
+- **Priority Alerts**: Get notified about high-priority and overdue tasks
+- **Interactive Tooltips**: Hover for detailed information
 
-### 🎨 User Experience
-- **Dark/Light Mode**: Toggle between themes
-- **Glassmorphism Design**: Modern, translucent UI elements
-- **Responsive Design**: Works perfectly on mobile, tablet, and desktop
-- **Smooth Animations**: Polished transitions and hover effects
-- **Accessibility**: Screen reader friendly with proper ARIA labels
+### 🔍 Advanced Filtering & Sorting
+- **Filter by**: Category, Priority, Completion Status
+- **Sort by**: Due Date, Priority, Creation Date, Title
+- **Search**: Find tasks quickly with real-time search
+- **Combination Filters**: Apply multiple filters simultaneously
+
+### 🎨 Modern UI/UX
+- **Glassmorphism Design**: Beautiful frosted glass effects
+- **Dark/Light Mode**: Automatic system preference detection with manual toggle
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
+- **Smooth Animations**: Fade-in effects and smooth transitions
+- **Touch-Friendly**: Optimized for mobile interactions
+
+### 💾 Data Persistence
+- **localStorage Integration**: All data persists across sessions
+- **Graceful Degradation**: Works even when localStorage is unavailable
+- **Error Handling**: Robust error boundaries and fallbacks
 
 ## 🚀 Getting Started
 
@@ -67,135 +70,139 @@ A modern, feature-rich task management and goal tracking application built with 
 
 2. **Install dependencies**
    ```bash
-   npm install --legacy-peer-deps
+   npm install
+   # or
+   yarn install
    ```
 
-3. **Start the development server**
+3. **Run the development server**
    ```bash
    npm run dev
+   # or
+   yarn dev
    ```
 
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-### Build for Production
+### Building for Production
 
 ```bash
 npm run build
 npm start
 ```
 
-## 🏗️ Project Structure
+## 🧪 Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+Run tests in watch mode:
+```bash
+npm run test:watch
+```
+
+## 📁 Project Structure
 
 ```
 planner-todolist/
-├── app/                    # Next.js app directory
+├── app/                    # Next.js 13+ app directory
 │   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout with theme provider
+│   ├── layout.tsx         # Root layout with providers
 │   └── page.tsx           # Main page component
-├── components/            # Reusable components
-│   ├── ui/               # Shadcn/ui components
+├── components/            # Reusable UI components
+│   ├── ui/               # Base UI components (Radix UI)
 │   ├── dashboard-analytics.tsx
 │   ├── edit-task-dialog.tsx
-│   ├── theme-provider.tsx
+│   ├── error-boundary.tsx
 │   └── theme-toggle.tsx
 ├── hooks/                # Custom React hooks
-│   ├── use-local-storage.ts
-│   ├── use-mobile.tsx
-│   └── use-toast.ts
+│   └── use-local-storage.ts
 ├── lib/                  # Utility functions
 │   ├── achievements.ts   # Achievement logic
-│   ├── task-utils.ts     # Task filtering/sorting
-│   └── utils.ts          # General utilities
+│   └── task-utils.ts     # Task filtering/sorting utilities
 ├── types/                # TypeScript type definitions
 │   └── index.ts
+├── __tests__/            # Test files
+│   ├── achievements.test.ts
+│   └── task-utils.test.ts
+├── public/               # Static assets
+│   ├── favicon.ico
+│   ├── manifest.json
+│   └── og-image.png
 └── planner-app.tsx       # Main application component
 ```
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 - **Framework**: Next.js 15 with App Router
-- **Frontend**: React 19 with TypeScript
-- **Styling**: Tailwind CSS with custom glassmorphism effects
-- **UI Components**: Radix UI primitives with Shadcn/ui
+- **Frontend**: React 19, TypeScript
+- **Styling**: Tailwind CSS with custom animations
+- **UI Components**: Radix UI primitives
 - **Icons**: Lucide React
-- **Theme**: next-themes for dark/light mode
-- **Storage**: localStorage for data persistence
-- **Animations**: CSS transitions and transforms
+- **State Management**: React hooks with localStorage persistence
+- **Testing**: Jest with React Testing Library
+- **Build Tool**: Next.js built-in bundler
 
-## 📱 Responsive Design
+## 🎨 Design System
 
-The application is fully responsive and optimized for:
-- **Mobile**: 320px - 768px
-- **Tablet**: 768px - 1024px  
-- **Desktop**: 1024px+
+### Colors
+- **Primary**: Blue (#3b82f6)
+- **Success**: Green (#10b981)
+- **Warning**: Yellow (#f59e0b)
+- **Error**: Red (#ef4444)
 
-## 🎯 Usage Guide
+### Typography
+- **Headings**: Bold, slate-800/slate-100
+- **Body**: Regular, slate-600/slate-300
+- **Captions**: Small, slate-500/slate-400
 
-### Creating Tasks
-1. Click the "Add Task" button
-2. Fill in task details (title, description, priority, category, due date)
-3. Click "Create Task"
+### Spacing
+- **Base unit**: 4px (0.25rem)
+- **Component padding**: 16px (1rem)
+- **Section margins**: 24px-32px (1.5rem-2rem)
 
-### Managing Tasks
-- **Complete**: Click the circle icon to mark as complete
-- **Edit**: Click the edit icon to modify task details
-- **Delete**: Click the trash icon to remove
-- **Reorder**: Drag and drop tasks to reorder
+## 📱 PWA Features
 
-### Setting Goals
-1. Go to the "Goals" tab
-2. Click "New Goal"
-3. Set title, description, target date, and category
-4. Link tasks to goals for automatic progress tracking
+- **Web App Manifest**: Installable as a PWA
+- **Responsive Design**: Mobile-first approach
+- **Offline-Ready**: Works without internet (localStorage)
+- **Touch Optimized**: 44px minimum touch targets
 
-### Filtering & Sorting
-1. Click the "Filters" button in the Today tab
-2. Filter by category, priority, or completion status
-3. Sort by creation date, due date, priority, or title
-4. Toggle sort direction with the arrow button
+## 🔧 Configuration
 
-### Achievements
-- Achievements unlock automatically based on your activity
-- View all achievements in the "Achievements" tab
-- Unlocked achievements show with a golden ring and trophy icon
+### Environment Variables
+No environment variables required - the app works out of the box!
 
-## 🔧 Customization
+### Customization
+- **Themes**: Modify `app/globals.css` for custom color schemes
+- **Achievements**: Add new achievements in `lib/achievements.ts`
+- **Categories**: Update category options in form components
 
-### Adding New Categories
-Update the category options in:
-- `components/edit-task-dialog.tsx`
-- `planner-app.tsx` (NewTaskForm and NewGoalForm)
+## 🐛 Troubleshooting
 
-### Adding New Achievements
-1. Add achievement definition to initial data in `planner-app.tsx`
-2. Add achievement condition to `lib/achievements.ts`
+### Common Issues
 
-### Styling
-- Modify `app/globals.css` for global styles
-- Update Tailwind classes in components for design changes
-- Customize glassmorphism effects with backdrop-blur utilities
+1. **localStorage not working**
+   - The app gracefully falls back to memory storage
+   - Check browser privacy settings
 
-## 🚀 Deployment
+2. **Build errors**
+   - Ensure Node.js 18+ is installed
+   - Clear `.next` folder and rebuild
 
-### Vercel (Recommended)
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Deploy automatically
-
-### Other Platforms
-The app can be deployed to any platform that supports Next.js:
-- Netlify
-- Railway
-- Heroku
-- AWS Amplify
+3. **Tests failing**
+   - Run `npm install` to ensure all dependencies are installed
+   - Check Jest configuration in `jest.config.js`
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
 ## 📄 License
@@ -204,11 +211,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [Shadcn/ui](https://ui.shadcn.com/) for beautiful UI components
-- [Radix UI](https://www.radix-ui.com/) for accessible primitives
-- [Lucide](https://lucide.dev/) for clean, consistent icons
+- [Next.js](https://nextjs.org/) for the amazing React framework
+- [Radix UI](https://www.radix-ui.com/) for accessible UI primitives
 - [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
+- [Lucide](https://lucide.dev/) for beautiful icons
 
 ---
 
-**Built with ❤️ using Next.js and React** 
+**Built with ❤️ using Next.js 15 and React 19** 

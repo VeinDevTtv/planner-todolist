@@ -252,11 +252,11 @@ export default function Component() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-6 md:mb-8">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-4xl font-bold text-slate-800 dark:text-slate-100 mb-2">My Planner</h1>
-              <p className="text-slate-600 dark:text-slate-300">Stay organized and achieve your goals</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-2">My Planner</h1>
+              <p className="text-sm md:text-base text-slate-600 dark:text-slate-300">Stay organized and achieve your goals</p>
             </div>
             <ThemeToggle />
           </div>
@@ -400,7 +400,7 @@ export default function Component() {
               {filteredAndSortedTasks.map((task, index) => (
                 <Card
                   key={task.id}
-                  className={`bg-white/80 backdrop-blur-sm border-0 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer ${
+                  className={`bg-white/80 backdrop-blur-sm border-0 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer animate-fade-in ${
                     task.completed ? "opacity-75" : ""
                   } ${draggedTask === task.id ? "opacity-50 scale-95" : ""}`}
                   draggable
@@ -448,7 +448,7 @@ export default function Component() {
                         <Button 
                           variant="ghost" 
                           size="sm" 
-                          className="h-8 w-8 p-0 hover:bg-slate-100"
+                          className="h-8 w-8 p-0 hover:bg-slate-100 dark:hover:bg-slate-700 touch-target"
                           onClick={() => setEditingTask(task)}
                         >
                           <Edit3 className="h-3 w-3" />
@@ -457,7 +457,7 @@ export default function Component() {
                           variant="ghost"
                           size="sm"
                           onClick={() => deleteTask(task.id)}
-                          className="h-8 w-8 p-0 hover:bg-red-50 hover:text-red-600"
+                          className="h-8 w-8 p-0 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400 touch-target"
                         >
                           <Trash2 className="h-3 w-3" />
                         </Button>
